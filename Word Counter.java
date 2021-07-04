@@ -31,7 +31,8 @@ public class Main extends Application {
 
 		text.setText("Word Counter");
 		Text text1 = new Text();
-		text1.setText("___________________________\n\nSelect a file.\n\nIt will calculate number of words.\n\nNumber of lines.\n\nNumber of digits,special characters.\n\n___________________________");
+		text1.setText(
+				"___________________________\n\nSelect a file.\n\nIt will calculate number of words.\n\nNumber of lines.\n\nNumber of digits,special characters.\n\n___________________________");
 		text1.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 14));
 		text1.setFill(Color.BLACK);
 		text1.setX(50);
@@ -123,9 +124,12 @@ public class Main extends Application {
 				File file = fil_chooser.showSaveDialog(stage);
 
 				if (file != null) {
+
 					Label non = new Label("No file is selected");
-					button.setTranslateX(300);
-					button.setTranslateY(290);
+					Group root1 = new Group(non);
+					non.setTranslateX(300);
+					non.setTranslateY(290);
+					Scene scene2 = new Scene(root1, 400, 400, Color.BEIGE);
 				}
 
 			}
@@ -135,7 +139,7 @@ public class Main extends Application {
 
 		Scene scene1 = new Scene(root, 400, 350, Color.BEIGE);
 
-		stage.setTitle("File Chooser Example");
+		stage.setTitle("Word Counter");
 		stage.setScene(scene1);
 
 		stage.show();
