@@ -1,9 +1,9 @@
-package javab;
+package application;
+
 
 
 import java.io.File;
 import java.util.Scanner;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,13 +26,18 @@ public class Main extends Application {
 		FileChooser fil_chooser = new FileChooser();
 
 		Text text = new Text();
-		text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
+		text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 40));
 		text.setFill(Color.BROWN);
-		text.setX(110);
-		text.setY(25);
+		text.setX(50);
+		text.setY(35);
 
 		text.setText("Word Counter");
-
+		Text text1 = new Text();
+		text1.setText("___________________________\n\nSelect a file.\n\nIt will calculate number of words.\n\nNumber of lines.\n\nNumber of digits,special characters.\n\n___________________________");
+		text1.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 14));
+		text1.setFill(Color.BLACK);
+		text1.setX(50);
+		text1.setY(100);
 		Button button = new Button("Open File");
 		Label v, line, cons, words, digit, spch;
 
@@ -81,18 +86,28 @@ public class Main extends Application {
 				Group root1 = new Group(v, line, cons, words, digit, spch);
 				line.setTextFill(Color.BROWN);
 				line.setFont(new Font("Arial", 20));
-				line.setTranslateX(110);
-				line.setTranslateY(25);
-				v.setTranslateX(110);
-				v.setTranslateY(50);
-				cons.setTranslateX(110);
-				cons.setTranslateY(75);
-				words.setTranslateX(110);
-				words.setTranslateY(100);
-				digit.setTranslateX(110);
-				digit.setTranslateY(125);
-				spch.setTranslateX(110);
-				spch.setTranslateY(150);
+				line.setTranslateX(60);
+				line.setTranslateY(30);
+				v.setTranslateX(60);
+				v.setTranslateY(80);
+				v.setTextFill(Color.BROWN);
+				v.setFont(new Font("Arial", 20));
+				cons.setTranslateX(60);
+				cons.setTranslateY(130);
+				cons.setTextFill(Color.BROWN);
+				cons.setFont(new Font("Arial", 20));
+				words.setTranslateX(60);
+				words.setTranslateY(180);
+				words.setTextFill(Color.BROWN);
+				words.setFont(new Font("Arial", 20));
+				digit.setTranslateX(60);
+				digit.setTranslateY(230);
+				digit.setTextFill(Color.BROWN);
+				digit.setFont(new Font("Arial", 20));
+				spch.setTranslateX(60);
+				spch.setTranslateY(280);
+				spch.setTextFill(Color.BROWN);
+				spch.setFont(new Font("Arial", 20));
 				Scene scene2 = new Scene(root1, 400, 400, Color.BEIGE);
 				stage.setScene(scene2);
 
@@ -100,8 +115,8 @@ public class Main extends Application {
 		};
 
 		button.setOnAction(event);
-		button.setTranslateX(120);
-		button.setTranslateY(150);
+		button.setTranslateX(160);
+		button.setTranslateY(290);
 
 		EventHandler<ActionEvent> event1 = new EventHandler<ActionEvent>() {
 
@@ -110,15 +125,17 @@ public class Main extends Application {
 				File file = fil_chooser.showSaveDialog(stage);
 
 				if (file != null) {
-					// label.setText(" selected");
+					Label non = new Label("No file is selected");
+					button.setTranslateX(300);
+					button.setTranslateY(290);
 				}
 
 			}
 		};
 
-		Group root = new Group(text, button);
+		Group root = new Group(text, text1, button);
 
-		Scene scene1 = new Scene(root, 400, 400, Color.BEIGE);
+		Scene scene1 = new Scene(root, 400, 350, Color.BEIGE);
 
 		stage.setTitle("File Chooser Example");
 		stage.setScene(scene1);
