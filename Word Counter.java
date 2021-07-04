@@ -141,6 +141,7 @@ public class Main extends Application {
 
 		stage.setTitle("Word Counter");
 		stage.setScene(scene1);
+		stage.setResizable(false);
 
 		stage.show();
 	}
